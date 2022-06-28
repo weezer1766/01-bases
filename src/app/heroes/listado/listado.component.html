@@ -1,0 +1,35 @@
+<!--<div *ngIf=" heroeBorrado!=='' ">-->
+<div *ngIf=" heroeBorrado else mensajeNoHayHeroeBorrado ">
+  <h3>PRIMER HEROE BORRADO DE LA LISTA: <small>{{heroeBorrado}}</small></h3>
+</div>
+<ng-template #mensajeNoHayHeroeBorrado>
+  <h3 style="color: red;">NO SE HA BORRADO NINGUN HEROE!!!</h3>
+</ng-template>
+
+<button (click)="borrarPrimerHeroeLista()">Borrar Primer Heroe de la Lista</button>
+
+<p>Listado de Heroes</p>
+
+<ul class="nav justify-content-center" *ngFor="let heroe of heroes; let i = index">
+    <li class="nav-item">
+      <div class="row">
+        <div class="col-6">
+          {{i+1}}-{{heroe}}
+        </div>
+        <div class="col-6">
+          <button (click)="borrarHeroe(heroe)">Borrar Heroe</button>
+        </div>
+      </div>
+    </li>
+</ul>
+
+<p>Listado de Heroes Borrados</p>
+<ul class="nav justify-content-center" *ngFor="let heroe of heroesBorrados; let i = index">
+  <li class="nav-item">
+    <div class="row">
+      <div class="col-6">
+        {{i+1}}-{{heroe}}
+      </div>
+    </div>
+  </li>
+</ul>
