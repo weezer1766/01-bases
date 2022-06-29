@@ -1,0 +1,15 @@
+<div class="col" *ngIf="listPersonaje.length>0 else mensajeNoExistenPersonajes">
+  <h3>Personajes</h3>
+  <hr>
+  <ul class="nav justify-content-center">
+      <li class="nav-item" *ngFor="let personaje of listPersonaje">
+        {{personaje.nombre}} - {{personaje.poder | number:'1.2-2'}}
+      </li>
+  </ul>
+</div>
+
+<ng-template #mensajeNoExistenPersonajes>
+  <div class="col">
+    <h3 style="color: red;">No existen personajes!!!</h3>
+  </div>
+</ng-template>

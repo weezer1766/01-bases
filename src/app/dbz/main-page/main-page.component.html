@@ -1,0 +1,69 @@
+<h1>Dragon Ball Z</h1>
+<hr>
+
+<div class="row">
+
+  <div class="col">
+    <!--CON @INPUT-->
+    <!--<app-personajes [listPersonajesRecibidos]="listPersonaje" ></app-personajes>-->
+    <app-personajes></app-personajes>
+  </div>
+
+  <!-- <div class="col" *ngIf="listPersonaje.length>0 else mensajeNoExistenPersonajes">
+    <h3>Personajes</h3>
+    <hr>
+    <ul class="nav justify-content-center">
+        <li class="nav-item" *ngFor="let personaje of listPersonaje">
+          {{personaje.nombre}} - {{personaje.poder | number:'1.2-2'}}
+        </li>
+    </ul>
+  </div>
+
+  <ng-template #mensajeNoExistenPersonajes>
+    <div class="col">
+      <h3 style="color: red;">No existen personajes!!!</h3>
+    </div>
+  </ng-template> -->
+
+  <div class="col">
+    <!--PRIMERA FORMA DE TRANSPORTAR EL LISTADO DEL HIJO AL PADRE Y VISEVERSA [listPersonajeRecibido]="listPersonaje"-->
+    <!--<app-agregar [personajeRecibido]="personaje" [listPersonajeRecibido]="listPersonaje"></app-agregar>-->
+    <!--CON @OUTPUT Y EVENTEMITTER-->
+    <!--<app-agregar [personajeRecibido]="personaje" (nuevoPersonajeEventEmitter)="dbzService.agregarPersonaje($event)"></app-agregar>-->
+    <app-agregar [personajeRecibido]="personaje"></app-agregar>
+
+    <!--ACTIVAR!!!!!
+    <h3>Agregar: <small>{{personaje?.nombre}}</small></h3>
+    <hr>
+    -->
+
+    <!--SIN FORMMODULE-->
+    <!--<form (submit)="agregarPersonaje()">-->
+    <!--CON FORMMODULE-->
+
+    <!--ACTIVAR!!!!!
+    <form (ngSubmit)="agregarPersonaje()">
+    -->
+
+      <!--ONE WAY BINDING-->
+      <!--
+      <input type="text" name="nombre" [value]="personaje.nombre" (input)="cambiarNombre($event)" placeholder="Nombre del personaje...">
+      <input type="number" name="poder" [value]="personaje.poder" placeholder="Poder del personaje...">
+      -->
+      <!--TWO WAY BINDING-->
+      <!--[()] = Significa que se quiere tanto escuchar como emitir el evento y el resultado debe recaer en una propiedad
+      en este caso en la propiedad "nombre" del objeto "personaje" y a su vez dicho resultado se enlaza a un atributo de la
+      etiqueta HTML-->
+      <!--[] = Significa que se quiere establecer una propiedad de un objeto a un atributo de la etiqueta HTML-->
+      <!--() = Significa que se quiere emitir o escuchar eventos-->
+
+      <!--ACTIVAR!!!!!
+      <input type="text" name="nombre" [(ngModel)]="personaje.nombre" placeholder="Nombre del personaje...">
+      <input type="number" name="poder" [(ngModel)]="personaje.poder" placeholder="Poder del personaje..." min="0">
+
+      <button type="submit">Agregar</button>
+    </form>
+    -->
+
+  </div>
+</div>

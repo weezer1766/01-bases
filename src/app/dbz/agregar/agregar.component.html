@@ -1,0 +1,22 @@
+<h3>Agregar: <small>{{personaje?.nombre}}</small></h3>
+<hr>
+<!--SIN FORMMODULE-->
+<!--<form (submit)="agregarPersonaje()">-->
+<!--CON FORMMODULE-->
+<form (ngSubmit)="agregarPersonajeEmitirAlPadre()">
+  <!--ONE WAY BINDING-->
+  <!--
+  <input type="text" name="nombre" [value]="personaje.nombre" (input)="cambiarNombre($event)" placeholder="Nombre del personaje...">
+  <input type="number" name="poder" [value]="personaje.poder" placeholder="Poder del personaje...">
+  -->
+  <!--TWO WAY BINDING-->
+  <!--[()] = Significa que se quiere tanto escuchar como emitir el evento y el resultado debe recaer en una propiedad
+  en este caso en la propiedad "nombre" del objeto "personaje" y a su vez dicho resultado se enlaza a un atributo de la
+  etiqueta HTML-->
+  <!--[] = Significa que se quiere establecer una propiedad de un objeto a un atributo de la etiqueta HTML-->
+  <!--() = Significa que se quiere emitir o escuchar eventos-->
+  <input type="text" name="nombre" [(ngModel)]="personaje.nombre" placeholder="Nombre del personaje...">
+  <input type="number" name="poder" [(ngModel)]="personaje.poder" placeholder="Poder del personaje..." min="0">
+
+  <button type="submit">Agregar</button>
+</form>
